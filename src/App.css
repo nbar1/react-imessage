@@ -1,0 +1,15 @@
+.App {
+	background: #fff;
+	height: 1334px;
+	margin: 20px auto 0;
+	overflow: hidden;
+	position: relative;
+	width: 750px;
+}
+
+.messages {
+	bottom: 0;
+	margin-bottom: 78px;
+	position: absolute;
+	width: 100%;
+}

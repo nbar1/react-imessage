@@ -1,0 +1,34 @@
+.MessageInput {
+	background-color: #fff;
+	border: 2px solid #C7C7CB;
+	border-radius: 34px;
+	box-sizing: border-box;
+	float: right;
+	height: 68px;
+	margin: 10px 32px 10px 0;
+	width: 586px;
+}
+
+.send-button {
+	background: #848E98;
+	border-radius: 26px;
+	float: right;
+	height: 52px;
+	margin: 6px 6px 0 0;
+	width: 52px;
+}
+
+#message-text {
+	border: 0;
+	color: transparent;
+	font-size: 32px;
+	height: 62px;
+	margin-left: 32px;
+	outline: none;
+	text-shadow: 0 0 0 #000;
+	width: 490px;
+}
+
+::-webkit-input-placeholder {
+	color: #C7C7CB;
+}

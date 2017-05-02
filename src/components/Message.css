@@ -1,0 +1,18 @@
+.Message {
+	background-color: #007df9;
+	border-radius: 30px;
+	clear: both;
+	color: #fff;
+	float: right;
+	font-size: 28px;
+	margin: 10px 32px 10px 0;
+	max-width: 502px;
+	padding: 15px;
+}
+
+.Message.received {
+	background-color: #E5E5E9;
+	color: #000;
+	float: left;
+	margin-left: 32px;
+}

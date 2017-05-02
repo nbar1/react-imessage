@@ -1,0 +1,30 @@
+.DirectionButton {
+	clear: both;
+	height: 100%;
+	float: left;
+	width: 132px;
+}
+
+.toggle {
+	background-color: #848E98;
+	border-radius: 13px;
+	color: #fff;
+	font-size: 32px;
+	font-weight: bold;
+	height: 48px;
+	margin: 20px 0 20px 38px;
+	width: 56px
+}
+
+.toggle:before {
+	line-height: 45px;
+	margin-left: 20px;
+}
+
+.toggle.left:before {
+	content: '<';
+}
+
+.toggle.right:before {
+	content: '>';
+}
