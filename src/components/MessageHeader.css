@@ -1,0 +1,49 @@
+/* 44 76 */
+.MessageHeader {
+	position: relative;
+	width: 100%;
+}
+
+.back-icon {
+	border: 2px solid #007EF9;
+	border-radius: 22px;
+	height: 40px;
+	position: absolute;
+	left: 32px;
+	top: 24px;
+	width: 40px;
+}
+
+.info-icon {
+	border: 2px solid #007EF9;
+	border-radius: 22px;
+	height: 40px;
+	position: absolute;
+	right: 32px;
+	top: 24px;
+	width: 40px;
+}
+
+.info-icon:before {
+	color: #007EF9;
+	content: 'i';
+	font-size: 22px;
+	left: 18px;
+	position: absolute;
+	top: 7px;
+}
+
+.contact-image {
+	background: #ccc;
+	border-radius: 40px;
+	height: 80px;
+	margin: 1px auto;
+	width: 80px;
+}
+
+.contact-name {
+	font-size: 22px;
+	margin-top: 5px;
+	text-align: center;
+	width: 100%;
+}

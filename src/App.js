@@ -25,9 +25,9 @@ class App extends Component {
 					<Message direction="received" text="Hello World Hello World Hello World Hello World Hello World Hello World Hello World" />
 					<Message direction="sent" text="Hello World Hello World Hello World Hello World Hello World Hello World Hello World" />
 					<Message direction="received" text="Hello World Hello World Hello World Hello World Hello World Hello World Hello World" />
-					<Message direction="sent" text="Hello World Hello World Hello World Hello World Hello World Hello World Hello World" />
-					<Message direction="received" text="Hello World Hello World Hello World Hello World Hello World Hello World Hello World" />
-					<Message direction="sent" text="Hello World Hello World Hello World Hello World Hello World Hello World Hello World" />
+					<Message direction="received" text="Do you have an apple keyboard with a USB?" />
+					<Message direction="sent" text="I do not. Any keyboard works with apple hto" />
+					<Message direction="sent" text="tho" />
 				</div>
 				<Footer />
 			</div>

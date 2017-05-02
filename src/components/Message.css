@@ -1,13 +1,13 @@
 .Message {
 	background-color: #007df9;
-	border-radius: 30px;
+	border-radius: 39px;
 	clear: both;
 	color: #fff;
 	float: right;
-	font-size: 28px;
+	font-size: 32px;
 	margin: 10px 32px 10px 0;
-	max-width: 502px;
-	padding: 15px;
+	max-width: 452px;
+	padding: 20px 30px;
 }
 
 .Message.received {
@@ -15,4 +15,12 @@
 	color: #000;
 	float: left;
 	margin-left: 32px;
+}
+
+.Message.sent + .Message.sent {
+	margin: -7px 32px 10px 0;
+}
+
+.Message.received + .Message.received {
+	margin: -7px 0 10px 32px;
 }

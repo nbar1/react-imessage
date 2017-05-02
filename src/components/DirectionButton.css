@@ -22,9 +22,9 @@
 }
 
 .toggle.left:before {
-	content: '<';
+	content: '';
 }
 
 .toggle.right:before {
-	content: '>';
+	content: '';
 }
