@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import Header from './components/Header';
 import Message from './components/Message';
@@ -8,26 +10,20 @@ import './App.css';
 
 class App extends Component {
 	render() {
+		const messageComponents = this.props.messages.map((message, index) => (
+				<Message
+					key={index}
+					index={index}
+					text={message.text}
+					direction={message.direction}
+				/>
+			));
+
 		return (
 			<div className="App">
 				<Header />
 				<div className="messages">
-					<Message direction="received" text="Hello World Hello World Hello World Hello World Hello World Hello World Hello World" />
-					<Message direction="sent" text="Hello World Hello World Hello World Hello World Hello World Hello World Hello World" />
-					<Message direction="received" text="Hello World Hello World Hello World Hello World Hello World Hello World Hello World" />
-					<Message direction="sent" text="Hello World Hello World Hello World Hello World Hello World Hello World Hello World" />
-					<Message direction="received" text="Hello World Hello World Hello World Hello World Hello World Hello World Hello World" />
-					<Message direction="sent" text="Hello World Hello World Hello World Hello World Hello World Hello World Hello World" />
-					<Message direction="received" text="Hello World Hello World Hello World Hello World Hello World Hello World Hello World" />
-					<Message direction="sent" text="Hello World Hello World Hello World Hello World Hello World Hello World Hello World" />
-					<Message direction="received" text="Hello World Hello World Hello World Hello World Hello World Hello World Hello World" />
-					<Message direction="sent" text="Hello World Hello World Hello World Hello World Hello World Hello World Hello World" />
-					<Message direction="received" text="Hello World Hello World Hello World Hello World Hello World Hello World Hello World" />
-					<Message direction="sent" text="Hello World Hello World Hello World Hello World Hello World Hello World Hello World" />
-					<Message direction="received" text="Hello World Hello World Hello World Hello World Hello World Hello World Hello World" />
-					<Message direction="received" text="Do you have an apple keyboard with a USB?" />
-					<Message direction="sent" text="I do not. Any keyboard works with apple hto" />
-					<Message direction="sent" text="tho" />
+					{messageComponents}
 				</div>
 				<Footer />
 			</div>
@@ -35,4 +31,14 @@ class App extends Component {
 	}
 }
 
-export default App;
+App.propTypes = {
+	messages: PropTypes.array.isRequired,
+};
+
+const mapStateToProps = state => (
+	{
+		messages: state.messages,
+	}
+);
+
+export default connect(mapStateToProps)(App);
