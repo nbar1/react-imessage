@@ -22,6 +22,7 @@ export default function Message(state = initialState, action) {
 	switch (action.type) {
 		case MessageActionTypes.ADD_MESSAGE:
 			return {
+				...state,
 				messages: [
 					...state.messages,
 					{
@@ -29,16 +30,21 @@ export default function Message(state = initialState, action) {
 						direction: action.direction,
 					},
 				],
-				messageDirection: state.messageDirection,
 			};
 
 		case MessageActionTypes.REMOVE_MESSAGE:
 			return {
+				...state,
 				messages: [
 					...state.messages.slice(0, action.index),
 					...state.messages.slice(action.index + 1),
 				],
-				messageDirection: state.messageDirection,
+			};
+
+		case MessageActionTypes.SET_MESSAGE_DIRECTION:
+			return {
+				...state,
+				messageDirection: action.direction,
 			};
 
 		default:

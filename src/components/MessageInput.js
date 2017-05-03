@@ -31,21 +31,27 @@ class MessageInput extends Component {
 	render() {
 		return (
 			<div className="MessageInput">
-				<input
-					type="text"
-					id="message-text"
-					placeholder="iMessage"
-					value={this.state.messageText}
-					onChange={function(e) {
-						this.onMessageChange(e);
-					}.bind(this)}
-				/>
-				<div
-					className="send-button"
-					onClick={function() {
+				<form
+					onSubmit={function(e) {
+						e.preventDefault();
 						this.addMessage();
 					}.bind(this)}
-				></div>
+				>
+					<input
+						type="text"
+						placeholder="iMessage"
+						value={this.state.messageText}
+						onChange={function(e) {
+							this.onMessageChange(e);
+						}.bind(this)}
+					/>
+					<div
+						className="send-button"
+						onClick={function() {
+							this.addMessage();
+						}.bind(this)}
+					></div>
+				</form>
 			</div>
 		);
 	}

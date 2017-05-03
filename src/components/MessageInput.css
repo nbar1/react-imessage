@@ -9,7 +9,7 @@
 	width: 586px;
 }
 
-.send-button {
+.MessageInput .send-button {
 	background: #848E98;
 	border-radius: 26px;
 	cursor: pointer;
@@ -19,7 +19,7 @@
 	width: 48px;
 }
 
-#message-text {
+.MessageInput input {
 	border: 0;
 	color: transparent;
 	font-size: 32px;
@@ -30,6 +30,6 @@
 	width: 486px;
 }
 
-::-webkit-input-placeholder {
+.MessageInput ::-webkit-input-placeholder {
 	color: #C7C7CB;
 }

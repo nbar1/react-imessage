@@ -15,10 +15,11 @@ class Footer extends Component {
 	render() {
 		const dispatch = this.props.dispatch;
 		const addMessage = bindActionCreators(MessageActionCreators.addMessage, dispatch);
+		const setMessageDirection = bindActionCreators(MessageActionCreators.setMessageDirection, dispatch);
 
 		return (
 			<div className="Footer">
-				<DirectionButton />
+				<DirectionButton setMessageDirection={setMessageDirection} />
 				<MessageInput addMessage={addMessage} direction={this.props.messageDirection} />
 			</div>
 		);

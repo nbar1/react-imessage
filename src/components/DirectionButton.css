@@ -9,6 +9,7 @@
 	background-color: #848E98;
 	border-radius: 13px;
 	color: #fff;
+	cursor: pointer;
 	font-size: 32px;
 	font-weight: bold;
 	height: 48px;
@@ -18,13 +19,14 @@
 
 .toggle:before {
 	line-height: 45px;
-	margin-left: 20px;
+	margin-left: 19px;
 }
 
-.toggle.left:before {
-	content: '';
+.toggle.received:before {
+	content: '<';
+	margin-left: 17px;
 }
 
-.toggle.right:before {
-	content: '';
+.toggle.sent:before {
+	content: '>';
 }
