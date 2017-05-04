@@ -23,7 +23,6 @@
 
 .StatusBarBattery .battery-text:after {
 	content: '%';
-	margin-left: 0px;
 }
 
 .StatusBarBattery .battery-icon {
