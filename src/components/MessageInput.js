@@ -3,7 +3,17 @@ import PropTypes from 'prop-types';
 
 import './MessageInput.css';
 
+/**
+ * MessageInput
+ *
+ * @class
+ */
 class MessageInput extends Component {
+	/**
+	 * constructor
+	 *
+	 * @constructor
+	 */
 	constructor() {
 		super();
 
@@ -12,12 +22,23 @@ class MessageInput extends Component {
 		};
 	}
 
+	/**
+	 * onMessageChange
+	 *
+	 * @param {event} e
+	 * @returns {void}
+	 */
 	onMessageChange(e) {
 		this.setState({
 			messageText: e.target.value,
 		});
 	}
 
+	/**
+	 * addMessage
+	 *
+	 * @returns {void}
+	 */
 	addMessage() {
 		if (this.state.messageText === '') return;
 
@@ -28,6 +49,11 @@ class MessageInput extends Component {
 		});
 	}
 
+	/**
+	 * render
+	 *
+	 * @returns {jsx}
+	 */
 	render() {
 		return (
 			<div className="MessageInput">

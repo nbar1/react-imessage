@@ -2,3 +2,108 @@
 	height: 40px;
 	width: 100%;
 }
+
+.StatusBar .status-bar-left {
+	float: left;
+	padding-top: 4px;
+}
+
+.StatusBar .status-bar-right {
+	float: right;
+	padding-top: 7px;
+}
+
+.StatusBar .status-bar-center {
+	font-size: 22px;
+	font-weight: 600;
+	line-height: 40px;
+	margin: 0 auto 0;
+	text-align: center;
+	width: 200px;
+}
+
+.StatusBar .antenna {
+	display: inline-block;
+	padding: 0 0 0 13px;
+	position: relative;
+}
+
+.StatusBar .antenna-circle {
+	display: inline-block;
+	height: 12px;
+	font-family: 'FontAwesome';
+	font-size: 12px;
+	margin-right: 2px;
+	width: 12px;
+}
+
+.StatusBar .antenna-circle:before {
+	content: '\f1db';
+	position: absolute;
+	top: 3px;
+}
+
+.StatusBar .antenna-circle.full:before {
+	content: '\f111';
+}
+
+.StatusBar .provider {
+	display: inline-block;
+	font-size: 18px;
+	padding: 4px 0 0 3px;
+}
+
+.StatusBar .wifi {
+	display: inline;
+	font-family: 'FontAwesome';
+	font-size: 18px;
+	margin: 3px 0 0 8px;
+}
+
+.StatusBar .wifi:before {
+	content: '\f1eb';
+}
+
+.StatusBar .location {
+	display: inline-block;
+	font-family: 'FontAwesome';
+	font-size: 20px;
+	width: 25px;
+}
+
+.StatusBar .location:before {
+	content: '\f124';
+}
+
+.StatusBar .bluetooth {
+	display: inline-block;
+	font-family: 'FontAwesome';
+	font-size: 22px;
+	width: 23px;
+}
+
+.StatusBar .bluetooth:before {
+	content: '\f294';
+}
+
+.StatusBar .battery {
+	display: inline-block;
+}
+
+.StatusBar .battery-text {
+	display: inline-block;
+	margin: 2px 5px 0 0;
+	vertical-align: top;
+}
+
+.StatusBar .battery-icon {
+	display: inline-block;
+	font-family: 'FontAwesome';
+	font-size: 22px;
+	margin-right: 14px;
+	width: 25px;
+}
+
+.StatusBar .battery-icon:before {
+	content: '\f240';
+}

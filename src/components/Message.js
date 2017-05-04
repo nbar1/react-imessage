@@ -3,7 +3,17 @@ import PropTypes from 'prop-types';
 
 import './Message.css';
 
+/**
+ * Message
+ *
+ * @class
+ */
 class Message extends Component {
+	/**
+	 * render
+	 *
+	 * @returns {jsx}
+	 */
 	render() {
 		return (
 			<div className={'Message ' + this.props.direction}>

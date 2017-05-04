@@ -5,7 +5,17 @@ import MessageHeader from './MessageHeader';
 
 import './Header.css';
 
+/**
+ * Header
+ *
+ * @class
+ */
 class Header extends Component {
+	/**
+	 * render
+	 *
+	 * @returns {jsx}
+	 */
 	render() {
 		return (
 			<div className="Header">

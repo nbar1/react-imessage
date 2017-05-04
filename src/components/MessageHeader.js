@@ -3,13 +3,30 @@ import PropTypes from 'prop-types';
 
 import './MessageHeader.css';
 
+/**
+ * MessageHeader
+ *
+ * @class
+ */
 class MessageHeader extends Component {
+	/**
+	 * constructor
+	 *
+	 * @constructor
+	 * @param {object} props
+	 */
 	constructor(props) {
 		super();
 
 		this.state = props;
 	}
 
+	/**
+	 * setContactInitials
+	 *
+	 * @param {string} newContactName
+	 * @returns {void}
+	 */
 	setContactInitials(newContactName) {
 		let contactName = (newContactName || this.state.contactName).trim();
 
@@ -36,6 +53,12 @@ class MessageHeader extends Component {
 		}
 	}
 
+	/**
+	 * onContactNameChange
+	 *
+	 * @param {event} e
+	 * @returns {void}
+	 */
 	onContactNameChange(e) {
 		this.setState({
 			contactName: e.target.value,
@@ -44,10 +67,20 @@ class MessageHeader extends Component {
 		this.setContactInitials(e.target.value);
 	}
 
+	/**
+	 * componentDidMount
+	 *
+	 * @returns {void}
+	 */
 	componentDidMount() {
 		this.setContactInitials();
 	}
 
+	/**
+	 * render
+	 *
+	 * @returns {jsx}
+	 */
 	render() {
 		return (
 			<div className="MessageHeader">
@@ -74,6 +107,6 @@ class MessageHeader extends Component {
 
 MessageHeader.propTypes = {
 	contactName: PropTypes.string.isRequired,
-}
+};
 
 export default MessageHeader;

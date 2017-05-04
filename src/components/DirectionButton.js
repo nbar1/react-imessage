@@ -3,7 +3,17 @@ import PropTypes from 'prop-types';
 
 import './DirectionButton.css';
 
+/**
+ * DirectionButton
+ *
+ * @class
+ */
 class DirectionButton extends Component {
+	/**
+	 * constructor
+	 *
+	 * @constructor
+	 */
 	constructor() {
 		super();
 
@@ -12,6 +22,11 @@ class DirectionButton extends Component {
 		};
 	}
 
+	/**
+	 * changeMessageDirection
+	 *
+	 * @returns {void}
+	 */
 	changeMessageDirection() {
 		let newDirection = (this.state.direction === 'sent') ? 'received' : 'sent';
 
@@ -22,6 +37,11 @@ class DirectionButton extends Component {
 		});
 	}
 
+	/**
+	 * render
+	 *
+	 * @returns {jsx}
+	 */
 	render() {
 		return (
 			<div className="DirectionButton">

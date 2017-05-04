@@ -10,8 +10,17 @@ import * as MessageActionCreators from '../actions/message';
 
 import './Footer.css';
 
+/**
+ * Footer
+ *
+ * @class
+ */
 class Footer extends Component {
-
+	/**
+	 * render
+	 *
+	 * @returns {jsx}
+	 */
 	render() {
 		const dispatch = this.props.dispatch;
 		const addMessage = bindActionCreators(MessageActionCreators.addMessage, dispatch);
