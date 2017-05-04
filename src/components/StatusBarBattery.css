@@ -8,6 +8,22 @@
 	font-size: 20px;
 	margin: -1px 5px 0 0;
 	vertical-align: top;
+	width: auto;
+}
+
+.StatusBarBattery .battery-text input {
+	background: transparent;
+	border: none;
+	display: inline-block;
+	font-size: 20px;
+	outline: none;
+	text-align: right;
+	width: auto;
+}
+
+.StatusBarBattery .battery-text:after {
+	content: '%';
+	margin-left: 0px;
 }
 
 .StatusBarBattery .battery-icon {

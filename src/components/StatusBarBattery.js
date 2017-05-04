@@ -10,6 +10,30 @@ import './StatusBarBattery.css';
  */
 class StatusBarBattery extends Component {
 	/**
+	 * constructor
+	 *
+	 * @constructor
+	 * @param {object} props
+	 */
+	constructor(props) {
+		super();
+
+		this.state = props;
+	}
+
+	/**
+	 * updatePercent
+	 *
+	 * @param {number} percent
+	 * @returns {void}
+	 */
+	updatePercent(percent) {
+		this.setState({
+			percent: percent,
+		});
+	}
+
+	/**
 	 * render
 	 *
 	 * @returns {jsx}
@@ -17,16 +41,16 @@ class StatusBarBattery extends Component {
 	render() {
 		let batteryIconClass;
 
-		if (this.props.percent > 80) {
+		if (this.state.percent > 80) {
 			batteryIconClass = 'full';
 		}
-		else if (this.props.percent > 60) {
+		else if (this.state.percent > 60) {
 			batteryIconClass = 'high';
 		}
-		else if (this.props.percent > 40) {
+		else if (this.state.percent > 40) {
 			batteryIconClass = 'medium';
 		}
-		else if (this.props.percent > 15) {
+		else if (this.state.percent > 15) {
 			batteryIconClass = 'low';
 		}
 		else {
@@ -35,7 +59,15 @@ class StatusBarBattery extends Component {
 
 		return (
 			<div className="StatusBarBattery">
-				<div className="battery-text">{this.props.percent}%</div>
+				<div className="battery-text">
+					<input
+						value={this.state.percent}
+						size={this.state.percent.toString().length || 1}
+						onChange={function(e) {
+							this.updatePercent(e.target.value);
+						}.bind(this)}
+					/>
+				</div>
 				<div className={'battery-icon ' + batteryIconClass}></div>
 			</div>
 		);
