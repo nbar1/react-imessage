@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import StatusBarAntenna from './StatusBarAntenna';
+import StatusBarBattery from './StatusBarBattery';
+
 import './StatusBar.css';
 
 /**
@@ -17,23 +20,14 @@ class StatusBar extends Component {
 		return (
 			<div className="StatusBar">
 				<div className="status-bar-left">
-					<div className="antenna">
-						<div className="antenna-circle full"></div>
-						<div className="antenna-circle full"></div>
-						<div className="antenna-circle full"></div>
-						<div className="antenna-circle"></div>
-						<div className="antenna-circle"></div>
-					</div>
+					<StatusBarAntenna strength={3} />
 					<div className="provider">AT&T</div>
 					<div className="wifi"></div>
 				</div>
 				<div className="status-bar-right">
 					<div className="location"></div>
 					<div className="bluetooth"></div>
-					<div className="battery">
-						<div className="battery-text">96%</div>
-						<div className="battery-icon"></div>
-					</div>
+					<StatusBarBattery percent={78} />
 				</div>
 				<div className="status-bar-center">
 					1:14 PM

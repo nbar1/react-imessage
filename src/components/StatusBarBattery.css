@@ -1,0 +1,39 @@
+
+.StatusBarBattery {
+	display: inline-block;
+}
+
+.StatusBarBattery .battery-text {
+	display: inline-block;
+	font-size: 20px;
+	margin: -1px 5px 0 0;
+	vertical-align: top;
+}
+
+.StatusBarBattery .battery-icon {
+	display: inline-block;
+	font-family: 'FontAwesome';
+	font-size: 22px;
+	margin-right: 14px;
+	width: 25px;
+}
+
+.StatusBarBattery .battery-icon.full:before {
+	content: '\f240';
+}
+
+.StatusBarBattery .battery-icon.high:before {
+	content: '\f241';
+}
+
+.StatusBarBattery .battery-icon.medium:before {
+	content: '\f242';
+}
+
+.StatusBarBattery .battery-icon.low:before {
+	content: '\f243';
+}
+
+.StatusBarBattery .battery-icon.empty:before {
+	content: '\f244';
+}
