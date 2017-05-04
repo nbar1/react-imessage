@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import StatusBarAntenna from './StatusBarAntenna';
 import StatusBarBattery from './StatusBarBattery';
+import StatusBarTime from './StatusBarTime';
 
 import './StatusBar.css';
 
@@ -30,7 +31,7 @@ class StatusBar extends Component {
 					<StatusBarBattery percent={78} />
 				</div>
 				<div className="status-bar-center">
-					1:14 PM
+					<StatusBarTime time="1:14 PM" />
 				</div>
 			</div>
 		);

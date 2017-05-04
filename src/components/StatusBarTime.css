@@ -1,0 +1,10 @@
+.StatusBarTime > input {
+	background-color: transparent;
+	border: none;
+	font-size: 22px;
+	font-weight: 600;
+	line-height: 40px;
+	outline: none;
+	text-align: center;
+	width: 200px;
+}
