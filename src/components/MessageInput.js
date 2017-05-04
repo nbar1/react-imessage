@@ -41,6 +41,7 @@ class MessageInput extends Component {
 						type="text"
 						placeholder="iMessage"
 						value={this.state.messageText}
+						className={this.state.messageText ? 'has-input' : 'no-input'}
 						onChange={function(e) {
 							this.onMessageChange(e);
 						}.bind(this)}

@@ -10,7 +10,7 @@
 }
 
 .MessageInput .send-button {
-	background: #848E98;
+	background-color: #848E98;
 	border-radius: 26px;
 	cursor: pointer;
 	float: right;
@@ -19,7 +19,28 @@
 	width: 48px;
 }
 
+.MessageInput .send-button:before {
+	color: #fff;
+	content: '\f130';
+	display: block;
+	font-family: 'FontAwesome';
+	font-size: 28px;
+	line-height: 48px;
+	text-align: center;
+}
+
+.MessageInput input.has-input + .send-button {
+	background-color: #007DF9;
+}
+
+.MessageInput input.has-input + .send-button:before {
+	content: '\f062';
+	line-height: 46px;
+	-webkit-text-stroke: 2px #007DF9;
+}
+
 .MessageInput input {
+	background-color: #fafafa;
 	border: 0;
 	color: transparent;
 	font-size: 32px;

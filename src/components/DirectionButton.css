@@ -10,23 +10,24 @@
 	border-radius: 13px;
 	color: #fff;
 	cursor: pointer;
-	font-size: 32px;
-	font-weight: bold;
+	font-size: 28px;
 	height: 48px;
 	margin: 20px 0 20px 38px;
 	width: 56px
 }
 
 .toggle:before {
-	line-height: 45px;
-	margin-left: 19px;
+	font-family: 'FontAwesome';
+	line-height: 50px;
+	margin-left: 20px;
+	-webkit-text-stroke: 1px #848E98;
 }
 
 .toggle.received:before {
-	content: '<';
+	content: '\f053';
 	margin-left: 17px;
 }
 
 .toggle.sent:before {
-	content: '>';
+	content: '\f054';
 }

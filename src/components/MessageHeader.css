@@ -5,18 +5,28 @@
 }
 
 .back-icon {
-	border: 2px solid #007EF9;
-	border-radius: 22px;
-	height: 40px;
+	cursor: pointer;
+	height: 44px;
 	position: absolute;
-	left: 32px;
+	left: 25px;
 	top: 24px;
-	width: 40px;
+	width: 44px;
+}
+
+.back-icon:before {
+	color: #007EF9;
+	content: '\f053';
+	display: inline-block;
+	font-family: 'FontAwesome';
+	font-size: 44px;
+	-webkit-text-stroke: 3px #F6F5F6;
+	transform: scale(1, 1.1);
 }
 
 .info-icon {
 	border: 2px solid #007EF9;
 	border-radius: 22px;
+	cursor: pointer;
 	height: 40px;
 	position: absolute;
 	right: 32px;
@@ -27,10 +37,11 @@
 .info-icon:before {
 	color: #007EF9;
 	content: 'i';
-	font-size: 22px;
-	left: 18px;
+	font-family: 'FontAwesome';
+	font-size: 28px;
+	left: 17px;
 	position: absolute;
-	top: 7px;
+	top: 5px;
 }
 
 .contact-image {
