@@ -1,0 +1,5 @@
+.show-options {
+	background-color: red;
+	height: 40px;
+	transition: height 1s;
+}
