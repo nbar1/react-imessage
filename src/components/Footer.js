@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 import DirectionButton from './DirectionButton';
 import MessageInput from './MessageInput';
-
-import * as MessageActionCreators from '../actions/message';
 
 import './Footer.css';
 
@@ -22,9 +18,7 @@ class Footer extends Component {
 	 * @returns {jsx}
 	 */
 	render() {
-		const dispatch = this.props.dispatch;
-		const addMessage = bindActionCreators(MessageActionCreators.addMessage, dispatch);
-		const setMessageDirection = bindActionCreators(MessageActionCreators.setMessageDirection, dispatch);
+		const { addMessage, setMessageDirection } = this.props.actions;
 
 		return (
 			<div className="Footer">
@@ -38,12 +32,7 @@ class Footer extends Component {
 Footer.propTypes = {
 	dispatch: PropTypes.func.isRequired,
 	messageDirection: PropTypes.string.isRequired,
+	actions: PropTypes.array.isRequired,
 };
 
-const mapStateToProps = state => (
-	{
-		messageDirection: state.messageDirection,
-	}
-);
-
-export default connect(mapStateToProps)(Footer);
+export default Footer;

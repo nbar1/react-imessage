@@ -1,31 +1,24 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import Header from './components/Header';
-import Message from './components/Message';
+import MessagesContainer from './components/MessagesContainer';
 import Footer from './components/Footer';
+
+import * as MessageActions from './actions/message';
 
 import './App.css';
 
 class App extends Component {
 	render() {
-		const messageComponents = this.props.messages.map((message, index) => (
-				<Message
-					key={index}
-					index={index}
-					text={message.text}
-					direction={message.direction}
-				/>
-			));
-
+		const { messages, messageDirection, actions } = this.props;
 		return (
 			<div className="App">
 				<Header />
-				<div className="messages">
-					{messageComponents}
-				</div>
-				<Footer />
+				<MessagesContainer messages={messages} actions={actions} />
+				<Footer actions={actions} messageDirection={messageDirection} />
 			</div>
 		);
 	}
@@ -33,12 +26,20 @@ class App extends Component {
 
 App.propTypes = {
 	messages: PropTypes.array.isRequired,
+	messageDirection: PropTypes.string.isRequired,
+	actions: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => (
 	{
-		messages: state.messages,
+		...state,
 	}
 );
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => (
+	{
+		actions: bindActionCreators(MessageActions, dispatch),
+	}
+);
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
