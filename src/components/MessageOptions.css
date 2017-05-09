@@ -1,5 +1,71 @@
-.show-options {
-	background-color: red;
+.MessageOptions {
+	height: 0;
+	overflow: hidden;
+	text-align: center;
+	transition: height .3s, margin .3s;
+}
+
+.MessageOptions.show-options {
 	height: 40px;
-	transition: height 1s;
+	margin: 10px 0 -10px;
+}
+
+.MessageOptions > div {
+	background-color: #848E98;
+	border-radius: 17px;
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	font-family: 'FontAwesome';
+	font-size: 21px;
+	height: 34px;
+	margin: 0 5px;
+	position: relative;
+	width: 34px;
+}
+
+.delete-message:hover {
+	background-color: #8A3030;
+}
+
+.delete-message:before {
+	content: '\f00d';
+	left: 9px;
+	position: absolute;
+	top: 6px;
+}
+
+.received .delete-message:before {
+	left: 8px;
+}
+
+.received .move-message-left {
+	display: none;
+}
+
+.move-message-left:hover {
+	background-color: #E5E5E9;
+	color: #000;
+}
+
+.move-message-left:before {
+	content: '\F053';
+	left: 8px;
+	position: absolute;
+	top: 7px;
+}
+
+.sent .move-message-right {
+	display: none;
+}
+
+.move-message-right:hover {
+	background-color: #007DF9;
+}
+
+.move-message-right:before {
+	content: '\F054';
+	left: 11px;
+	position: absolute;
+	top: 7px;
 }

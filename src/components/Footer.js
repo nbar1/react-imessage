@@ -18,11 +18,11 @@ class Footer extends Component {
 	 * @returns {jsx}
 	 */
 	render() {
-		const { addMessage, setMessageDirection } = this.props.actions;
+		const { addMessage, setGlobalMessageDirection } = this.props.actions;
 
 		return (
 			<div className="Footer">
-				<DirectionButton setMessageDirection={setMessageDirection} />
+				<DirectionButton setMessageDirection={setGlobalMessageDirection} />
 				<MessageInput addMessage={addMessage} direction={this.props.messageDirection} />
 			</div>
 		);
@@ -30,9 +30,8 @@ class Footer extends Component {
 }
 
 Footer.propTypes = {
-	dispatch: PropTypes.func.isRequired,
 	messageDirection: PropTypes.string.isRequired,
-	actions: PropTypes.array.isRequired,
+	actions: PropTypes.object.isRequired,
 };
 
 export default Footer;

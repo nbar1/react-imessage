@@ -15,9 +15,17 @@ export const removeMessage = index => {
 	};
 };
 
-export const setMessageDirection = direction => {
+export const setMessageDirection = (index, direction) => {
 	return {
 		type: MessageActionTypes.SET_MESSAGE_DIRECTION,
+		index,
+		direction,
+	};
+};
+
+export const setGlobalMessageDirection = direction => {
+	return {
+		type: MessageActionTypes.SET_GLOBAL_MESSAGE_DIRECTION,
 		direction,
 	};
 };

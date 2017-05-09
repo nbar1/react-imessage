@@ -14,13 +14,14 @@ class Message extends Component {
 	/**
 	 * constructor
 	 *
-	 * @param {object} props
 	 * @constructor
 	 */
-	constructor(props) {
+	constructor() {
 		super();
 
-		this.state = props;
+		this.state = {
+			showOptions: false,
+		};
 	}
 
 	/**
@@ -43,7 +44,7 @@ class Message extends Component {
 	render() {
 		return (
 			<div
-				className={'Message ' + this.state.direction}
+				className={'Message ' + this.props.direction}
 				onMouseOver={function() {
 					this.showOptions(true);
 				}.bind(this)}
@@ -52,7 +53,11 @@ class Message extends Component {
 				}.bind(this)}
 			>
 				{this.props.text}
-				<MessageOptions showOptions={this.state.showOptions} index={this.props.index} direction={this.state.direction} />
+				<MessageOptions
+					showOptions={this.state.showOptions}
+					removeMessage={this.props.actions.removeMessage}
+					index={this.props.index}
+					direction={this.props.direction} />
 			</div>
 		);
 	}
@@ -62,6 +67,7 @@ Message.propTypes = {
 	direction: PropTypes.string.isRequired,
 	text: PropTypes.string.isRequired,
 	index: PropTypes.number.isRequired,
+	actions: PropTypes.object.isRequired,
 };
 
 export default Message;
