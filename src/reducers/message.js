@@ -42,11 +42,15 @@ export default function Message(state = initialState, action) {
 			};
 
 		case MessageActionTypes.SET_MESSAGE_DIRECTION:
-			var newState = Object.assign({}, state);
-			newState.messages[action.index].direction = action.direction;
-
 			return {
-				...newState,
+				...state,
+				messages: [
+					...state.messages.slice(0, action.index),
+					Object.assign({}, state.messages[action.index], {
+						direction: action.direction,
+					}),
+					...state.messages.slice(action.index + 1),
+				],
 			};
 
 		case MessageActionTypes.SET_GLOBAL_MESSAGE_DIRECTION:

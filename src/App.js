@@ -18,7 +18,7 @@ class App extends Component {
 			<div className="App">
 				<Header />
 				<MessagesContainer messages={messages} actions={actions} />
-				<Footer actions={actions} messageDirection={messageDirection} />
+				<Footer messageDirection={messageDirection} actions={actions} />
 			</div>
 		);
 	}

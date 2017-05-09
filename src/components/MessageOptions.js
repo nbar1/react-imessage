@@ -19,6 +19,17 @@ class MessageOptions extends Component {
 	}
 
 	/**
+	 * changeDirection
+	 *
+	 * @returns {void}
+	 */
+	changeDirection() {
+		let newDirection = (this.props.direction === 'sent') ? 'received' : 'sent';
+
+		this.props.setMessageDirection(this.props.index, newDirection);
+	}
+
+	/**
 	 * render
 	 *
 	 * @returns {jsx}
@@ -26,14 +37,24 @@ class MessageOptions extends Component {
 	render() {
 		return (
 			<div className={'MessageOptions ' + (this.props.showOptions === true ? 'show-options' : 'hide-options')}>
-				<div className='move-message-left'></div>
+				<div
+					className='move-message-left'
+					onClick={function() {
+						this.changeDirection();
+					}.bind(this)}
+				></div>
 				<div
 					className='delete-message'
 					onClick={function() {
 						this.removeMessage();
 					}.bind(this)}
 				></div>
-				<div className='move-message-right'></div>
+				<div
+					className='move-message-right'
+					onClick={function() {
+						this.changeDirection();
+					}.bind(this)}
+				></div>
 			</div>
 		);
 	}
@@ -43,6 +64,7 @@ MessageOptions.propTypes = {
 	index: PropTypes.number.isRequired,
 	direction: PropTypes.string.isRequired,
 	showOptions: PropTypes.bool,
+	setMessageDirection: PropTypes.func.isRequired,
 	removeMessage: PropTypes.func.isRequired,
 };
 

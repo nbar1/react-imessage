@@ -55,6 +55,7 @@ class Message extends Component {
 				{this.props.text}
 				<MessageOptions
 					showOptions={this.state.showOptions}
+					setMessageDirection={this.props.actions.setMessageDirection}
 					removeMessage={this.props.actions.removeMessage}
 					index={this.props.index}
 					direction={this.props.direction} />
