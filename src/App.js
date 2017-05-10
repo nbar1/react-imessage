@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Header from './components/Header';
 import MessagesContainer from './components/MessagesContainer';
@@ -14,10 +15,16 @@ import './App.css';
 class App extends Component {
 	render() {
 		const { messages, messageDirection, actions } = this.props;
+
 		return (
 			<div className="App">
 				<Header />
-				<MessagesContainer messages={messages} actions={actions} />
+				<Router>
+					<div>
+						<Route exact path='/' render={() => <MessagesContainer messages={messages} actions={actions} />} />
+						<Route path='/messages' render={() => <div>Hello</div>} />
+					</div>
+				</Router>
 				<Footer messageDirection={messageDirection} actions={actions} />
 			</div>
 		);

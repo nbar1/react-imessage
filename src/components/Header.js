@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import StatusBar from './StatusBar';
 import MessageHeader from './MessageHeader';
@@ -20,7 +21,12 @@ class Header extends Component {
 		return (
 			<div className="Header">
 				<StatusBar />
-				<MessageHeader contactName="John Doe" />
+				<Router>
+					<div>
+						<Route exact path='/' render={() => <MessageHeader contactName="John Doe" />} />
+						<Route path='/messages' render={() => <div>hello 2</div>} />
+					</div>
+				</Router>
 			</div>
 		);
 	}
