@@ -42,7 +42,7 @@ class MessageInput extends Component {
 	addMessage() {
 		if (this.state.messageText === '') return;
 
-		this.props.addMessage(this.state.messageText, this.props.direction);
+		this.props.addMessage(this.props.threadId, this.state.messageText, this.props.direction);
 
 		this.setState({
 			messageText: '',
@@ -87,6 +87,7 @@ class MessageInput extends Component {
 MessageInput.propTypes = {
 	addMessage: PropTypes.func.isRequired,
 	direction: PropTypes.string.isRequired,
+	threadId: PropTypes.number.isRequired,
 };
 
 export default MessageInput;

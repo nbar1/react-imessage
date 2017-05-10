@@ -3,16 +3,21 @@ import * as MessageActionTypes from '../action-types/message';
 const initialState = {
 	messages: [
 		{
-			text: 'Test message received',
-			direction: 'received',
-		},
-		{
-			text: 'Test message sent',
-			direction: 'sent',
-		},
-		{
-			text: 'Second test message sent',
-			direction: 'sent',
+			contactName: 'John Doe',
+			thread: [
+				{
+					text: 'Test message received',
+					direction: 'received',
+				},
+				{
+					text: 'Test message sent',
+					direction: 'sent',
+				},
+				{
+					text: 'Second test message sent',
+					direction: 'sent',
+				},
+			],
 		},
 	],
 	messageDirection: 'sent',
@@ -24,11 +29,17 @@ export default function Message(state = initialState, action) {
 			return {
 				...state,
 				messages: [
-					...state.messages,
-					{
-						text: action.text,
-						direction: action.direction,
-					},
+					...state.messages.slice(0, action.threadId),
+					Object.assign({}, state.messages[action.threadId], {
+						thread: [
+							...state.messages[action.threadId].thread,
+							{
+								text: action.text,
+								direction: action.direction,
+							},
+						],
+					}),
+					...state.messages.slice(action.threadId + 1),
 				],
 			};
 
@@ -36,8 +47,14 @@ export default function Message(state = initialState, action) {
 			return {
 				...state,
 				messages: [
-					...state.messages.slice(0, action.index),
-					...state.messages.slice(action.index + 1),
+					...state.messages.slice(0, action.threadId),
+					Object.assign({}, state.messages[action.threadId], {
+						thread: [
+							...state.messages[action.threadId].thread.slice(0, action.index),
+							...state.messages[action.threadId].thread.slice(action.index + 1),
+						],
+					}),
+					...state.messages.slice(action.threadId + 1),
 				],
 			};
 
@@ -45,11 +62,17 @@ export default function Message(state = initialState, action) {
 			return {
 				...state,
 				messages: [
-					...state.messages.slice(0, action.index),
-					Object.assign({}, state.messages[action.index], {
-						direction: action.direction,
+					...state.messages.slice(0, action.threadId),
+					Object.assign({}, state.messages[action.threadId], {
+						thread: [
+							...state.messages[action.threadId].thread.slice(0, action.index),
+							Object.assign({}, state.messages[action.threadId].thread[action.index], {
+								direction: action.direction,
+							}),
+							...state.messages[action.threadId].thread.slice(action.index + 1),
+						],
 					}),
-					...state.messages.slice(action.index + 1),
+					...state.messages.slice(action.threadId + 1),
 				],
 			};
 

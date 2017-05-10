@@ -15,7 +15,7 @@ class MessageOptions extends Component {
 	 * @returns {void}
 	 */
 	removeMessage() {
-		this.props.removeMessage(this.props.index);
+		this.props.removeMessage(this.props.threadId, this.props.index);
 	}
 
 	/**
@@ -26,7 +26,7 @@ class MessageOptions extends Component {
 	changeDirection() {
 		let newDirection = (this.props.direction === 'sent') ? 'received' : 'sent';
 
-		this.props.setMessageDirection(this.props.index, newDirection);
+		this.props.setMessageDirection(this.props.threadId, this.props.index, newDirection);
 	}
 
 	/**
@@ -63,6 +63,7 @@ class MessageOptions extends Component {
 MessageOptions.propTypes = {
 	index: PropTypes.number.isRequired,
 	direction: PropTypes.string.isRequired,
+	threadId: PropTypes.number.isRequired,
 	showOptions: PropTypes.bool,
 	setMessageDirection: PropTypes.func.isRequired,
 	removeMessage: PropTypes.func.isRequired,

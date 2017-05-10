@@ -4,9 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import Header from './components/Header';
-import MessagesContainer from './components/MessagesContainer';
-import Footer from './components/Footer';
+import MessageThreadContainer from './containers/MessageThreadContainer';
 
 import * as MessageActions from './actions/message';
 
@@ -14,18 +12,14 @@ import './App.css';
 
 class App extends Component {
 	render() {
-		const { messages, messageDirection, actions } = this.props;
-
 		return (
 			<div className="App">
-				<Header />
 				<Router>
 					<div>
-						<Route exact path='/' render={() => <MessagesContainer messages={messages} actions={actions} />} />
+						<Route exact path='/' render={() => <MessageThreadContainer {...this.props} />} />
 						<Route path='/messages' render={() => <div>Hello</div>} />
 					</div>
 				</Router>
-				<Footer messageDirection={messageDirection} actions={actions} />
 			</div>
 		);
 	}

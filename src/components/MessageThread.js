@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import key from 'weak-key';
 
-import Message from './Message';
+import Message from '../components/Message';
 
-import './MessagesContainer.css';
+import './MessageThread.css';
 
 /**
- * MessageContainer
+ * MessageThread
  *
  * @class
  */
-class MessagesContainer extends Component {
+class MessageThread extends Component {
 	/**
 	 * render
 	 *
@@ -20,10 +20,13 @@ class MessagesContainer extends Component {
 	render() {
 		const actions = this.props.actions;
 
-		const messageComponents = this.props.messages.map((message, index) => (
+		let threadId = (this.props.threadId) ? this.props.threadId : 0;
+
+		const messageComponents = this.props.messages[threadId].thread.map((message, index) => (
 			<Message
 				key={key(message)}
 				index={index}
+				threadId={threadId}
 				text={message.text}
 				direction={message.direction}
 				actions={actions}
@@ -31,16 +34,17 @@ class MessagesContainer extends Component {
 		));
 
 		return (
-			<div className="MessagesContainer">
+			<div className="MessageThread">
 				{messageComponents}
 			</div>
 		);
 	}
 }
 
-MessagesContainer.propTypes = {
+MessageThread.propTypes = {
 	messages: PropTypes.array.isRequired,
 	actions: PropTypes.object.isRequired,
+	threadId: PropTypes.number,
 };
 
-export default MessagesContainer;
+export default MessageThread;
