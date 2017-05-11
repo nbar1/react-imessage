@@ -19,6 +19,23 @@ const initialState = {
 				},
 			],
 		},
+		{
+			contactName: 'Jim Smith',
+			thread: [
+				{
+					text: 'This is a test message that was sent',
+					direction: 'sent',
+				},
+				{
+					text: 'This is a message that was received and is longer than your standard message that is shown in this application.',
+					direction: 'received',
+				},
+				{
+					text: 'Second test message received',
+					direction: 'received',
+				},
+			],
+		},
 	],
 	messageDirection: 'sent',
 };
@@ -29,17 +46,17 @@ export default function Message(state = initialState, action) {
 			return {
 				...state,
 				messages: [
-					...state.messages.slice(0, action.threadId),
-					Object.assign({}, state.messages[action.threadId], {
+					...state.messages.slice(0, action.messageId),
+					Object.assign({}, state.messages[action.messageId], {
 						thread: [
-							...state.messages[action.threadId].thread,
+							...state.messages[action.messageId].thread,
 							{
 								text: action.text,
 								direction: action.direction,
 							},
 						],
 					}),
-					...state.messages.slice(action.threadId + 1),
+					...state.messages.slice(action.messageId + 1),
 				],
 			};
 
@@ -47,14 +64,26 @@ export default function Message(state = initialState, action) {
 			return {
 				...state,
 				messages: [
-					...state.messages.slice(0, action.threadId),
-					Object.assign({}, state.messages[action.threadId], {
+					...state.messages.slice(0, action.messageId),
+					Object.assign({}, state.messages[action.messageId], {
 						thread: [
-							...state.messages[action.threadId].thread.slice(0, action.index),
-							...state.messages[action.threadId].thread.slice(action.index + 1),
+							...state.messages[action.messageId].thread.slice(0, action.index),
+							...state.messages[action.messageId].thread.slice(action.index + 1),
 						],
 					}),
-					...state.messages.slice(action.threadId + 1),
+					...state.messages.slice(action.messageId + 1),
+				],
+			};
+
+		case MessageActionTypes.UPDATE_MESSAGE_CONTACT_NAME:
+			return {
+				...state,
+				messages: [
+					...state.messages.slice(0, action.messageId),
+					Object.assign({}, state.messages[action.messageId], {
+						contactName: action.contactName,
+					}),
+					...state.messages.slice(action.messageId + 1),
 				],
 			};
 
@@ -62,17 +91,17 @@ export default function Message(state = initialState, action) {
 			return {
 				...state,
 				messages: [
-					...state.messages.slice(0, action.threadId),
-					Object.assign({}, state.messages[action.threadId], {
+					...state.messages.slice(0, action.messageId),
+					Object.assign({}, state.messages[action.messageId], {
 						thread: [
-							...state.messages[action.threadId].thread.slice(0, action.index),
-							Object.assign({}, state.messages[action.threadId].thread[action.index], {
+							...state.messages[action.messageId].thread.slice(0, action.index),
+							Object.assign({}, state.messages[action.messageId].thread[action.index], {
 								direction: action.direction,
 							}),
-							...state.messages[action.threadId].thread.slice(action.index + 1),
+							...state.messages[action.messageId].thread.slice(action.index + 1),
 						],
 					}),
-					...state.messages.slice(action.threadId + 1),
+					...state.messages.slice(action.messageId + 1),
 				],
 			};
 

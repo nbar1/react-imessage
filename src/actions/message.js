@@ -1,26 +1,34 @@
 import * as MessageActionTypes from '../action-types/message';
 
-export const addMessage = (threadId, text, direction) => {
+export const addMessage = (messageId, text, direction) => {
 	return {
 		type: MessageActionTypes.ADD_MESSAGE,
-		threadId,
+		messageId,
 		text,
 		direction,
 	};
 };
 
-export const removeMessage = (threadId, index) => {
+export const removeMessage = (messageId, index) => {
 	return {
 		type: MessageActionTypes.REMOVE_MESSAGE,
-		threadId,
+		messageId,
 		index,
 	};
 };
 
-export const setMessageDirection = (threadId, index, direction) => {
+export const updateMessageContactName = (messageId, contactName) => {
+	return {
+		type: MessageActionTypes.UPDATE_MESSAGE_CONTACT_NAME,
+		messageId,
+		contactName,
+	};
+};
+
+export const setMessageDirection = (messageId, index, direction) => {
 	return {
 		type: MessageActionTypes.SET_MESSAGE_DIRECTION,
-		threadId,
+		messageId,
 		index,
 		direction,
 	};

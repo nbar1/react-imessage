@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import StatusBar from './StatusBar';
 import MessageHeader from './MessageHeader';
@@ -22,18 +21,14 @@ class Header extends Component {
 		return (
 			<div className="Header">
 				<StatusBar />
-				<Router>
-					<div>
-						<Route exact path='/' render={() => <MessageHeader contactName={this.props.contactName} />} />
-					</div>
-				</Router>
+				<MessageHeader contactName={this.props.contactName} />
 			</div>
 		);
 	}
 }
 
 Header.propTypes = {
-	contactName: PropTypes.string.isRequired,
+	contactName: PropTypes.string,
 };
 
 export default Header;

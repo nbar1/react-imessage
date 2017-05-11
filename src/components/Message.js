@@ -57,7 +57,7 @@ class Message extends Component {
 					showOptions={this.state.showOptions}
 					setMessageDirection={this.props.actions.setMessageDirection}
 					removeMessage={this.props.actions.removeMessage}
-					threadId={this.props.threadId}
+					messageId={this.props.messageId}
 					index={this.props.index}
 					direction={this.props.direction} />
 			</div>
@@ -69,7 +69,7 @@ Message.propTypes = {
 	direction: PropTypes.string.isRequired,
 	text: PropTypes.string.isRequired,
 	index: PropTypes.number.isRequired,
-	threadId: PropTypes.number.isRequired,
+	messageId: PropTypes.number.isRequired,
 	actions: PropTypes.object.isRequired,
 };
 

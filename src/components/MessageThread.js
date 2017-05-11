@@ -20,13 +20,13 @@ class MessageThread extends Component {
 	render() {
 		const actions = this.props.actions;
 
-		let threadId = (this.props.threadId) ? this.props.threadId : 0;
+		let messageId = (this.props.messageId) ? this.props.messageId : 0;
 
-		const messageComponents = this.props.messages[threadId].thread.map((message, index) => (
+		const messageComponents = this.props.message.thread.map((message, index) => (
 			<Message
 				key={key(message)}
 				index={index}
-				threadId={threadId}
+				messageId={messageId}
 				text={message.text}
 				direction={message.direction}
 				actions={actions}
@@ -42,9 +42,9 @@ class MessageThread extends Component {
 }
 
 MessageThread.propTypes = {
-	messages: PropTypes.array.isRequired,
+	message: PropTypes.object.isRequired,
 	actions: PropTypes.object.isRequired,
-	threadId: PropTypes.number,
+	messageId: PropTypes.number,
 };
 
 export default MessageThread;

@@ -23,7 +23,7 @@ class Footer extends Component {
 		return (
 			<div className="Footer">
 				<DirectionButton setMessageDirection={setGlobalMessageDirection} />
-				<MessageInput addMessage={addMessage} direction={this.props.messageDirection} threadId={this.props.threadId} />
+				<MessageInput addMessage={addMessage} direction={this.props.messageDirection} messageId={this.props.messageId} />
 			</div>
 		);
 	}
@@ -32,7 +32,7 @@ class Footer extends Component {
 Footer.propTypes = {
 	messageDirection: PropTypes.string.isRequired,
 	actions: PropTypes.object.isRequired,
-	threadId: PropTypes.number.isRequired,
+	messageId: PropTypes.number.isRequired,
 };
 
 export default Footer;

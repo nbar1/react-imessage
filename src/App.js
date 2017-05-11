@@ -11,13 +11,14 @@ import * as MessageActions from './actions/message';
 import './App.css';
 
 class App extends Component {
-	render() {
+	render(match) {
 		return (
 			<div className="App">
 				<Router>
 					<div>
 						<Route exact path='/' render={() => <MessageThreadContainer {...this.props} />} />
-						<Route path='/messages' render={() => <div>Hello</div>} />
+						<Route exact path='/messages' render={() => <div>Hello</div>} />
+						<Route path='/messages/:messageId' render={(route) => <MessageThreadContainer {...this.props} match={route.match} />} />
 					</div>
 				</Router>
 			</div>

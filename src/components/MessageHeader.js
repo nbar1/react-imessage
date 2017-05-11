@@ -22,6 +22,20 @@ class MessageHeader extends Component {
 	}
 
 	/**
+	 * componentWillReceiveProps
+	 *
+	 * @param {object} newProps
+	 * @returns {void}
+	 */
+	componentWillReceiveProps(newProps) {
+		this.setState({
+			contactName: newProps.contactName,
+		});
+
+		this.setContactInitials(newProps.contactName);
+	}
+
+	/**
 	 * setContactInitials
 	 *
 	 * @param {string} newContactName

@@ -17,13 +17,14 @@ class MessageThreadContainer extends Component {
 	 * @returns {jsx}
 	 */
 	render() {
-		const threadId = (this.props.threadId) ? this.props.threadId : 0;
+		const messageId = (this.props.match.params.messageId) ? parseInt(this.props.match.params.messageId) : 0;
+		const message = this.props.messages[messageId];
 
 		return (
 			<div className="MessageThreadContainer">
-				<Header contactName="John Doe"  threadId={threadId} />
-				<MessageThread {...this.props}  threadId={threadId} />
-				<Footer {...this.props} threadId={threadId} />
+				<Header contactName={message.contactName} />
+				<MessageThread message={message} messageId={messageId} actions={this.props.actions} />
+				<Footer {...this.props} messageId={messageId} />
 			</div>
 		);
 	}
@@ -33,7 +34,7 @@ MessageThreadContainer.propTypes = {
 	messages: PropTypes.array.isRequired,
 	messageDirection: PropTypes.string.isRequired,
 	actions: PropTypes.object.isRequired,
-	threadId: PropTypes.number,
+	match: PropTypes.object,
 };
 
 export default MessageThreadContainer;
