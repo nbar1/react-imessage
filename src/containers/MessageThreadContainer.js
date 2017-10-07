@@ -17,7 +17,7 @@ class MessageThreadContainer extends Component {
 	 * @returns {jsx}
 	 */
 	render() {
-		const messageId = (this.props.match.params.messageId) ? parseInt(this.props.match.params.messageId) : 0;
+		const messageId = (this.props.match && this.props.match.params.messageId) ? parseInt(this.props.match.params.messageId) : 0;
 		const message = this.props.messages[messageId];
 
 		return (
